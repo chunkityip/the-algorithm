@@ -65,8 +65,8 @@ public class TierServingBoundaryEndPoint {
   public static TierServingBoundaryEndPoint newTierServingBoundaryEndPoint(String boundaryString,
       Date boundaryDate,
       Clock clock) {
-    if (boundaryString == null || boundaryString.trim().equals(
-        INFERRED_FROM_DATA_RANGE)) {
+    if (boundaryString == null || INFERRED_FROM_DATA_RANGE.equals
+        (boundaryString.trim())) {
       return inferBoundaryFromDataRange(boundaryDate, clock);
     } else if (boundaryString.trim().startsWith(RELATIVE_TO_CURRENT_TIME_MS)) {
       return getRelativeBoundary(boundaryString, clock);

@@ -42,13 +42,13 @@ public class RealtimeIngesterPipelineV2 {
 
   public RealtimeIngesterPipelineV2(String environment, String cluster, int threadsToSpawn) throws
       PipelineV2CreationException, PipelineStageException {
-    if (!environment.equals(PROD_ENV) && !environment.equals(STAGING_ENV)
-        && !environment.equals(STAGING1_ENV)) {
+    if (!PROD_ENV.equals(environment) && !STAGING_ENV.equals(environment)
+        && !STAGING1_ENV.equals(environment)) {
       throw new PipelineV2CreationException("invalid value for environment");
     }
 
-    if (!cluster.equals(REALTIME_CLUSTER)
-        && !cluster.equals(PROTECTED_CLUSTER) && !cluster.equals(REALTIME_CG_CLUSTER)) {
+    if (!REALTIME_CLUSTER.equals(cluster)
+        && !PROTECTED_CLUSTER.equals(cluster) && !REALTIME_CG_CLUSTER.equals(cluster)) {
       throw new PipelineV2CreationException("invalid value for cluster.");
     }
 
