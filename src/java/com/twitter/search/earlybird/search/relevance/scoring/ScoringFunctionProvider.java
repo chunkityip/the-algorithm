@@ -61,14 +61,14 @@ public abstract class ScoringFunctionProvider {
    */
   public static NamedScoringFunctionProvider getScoringFunctionProviderByName(
       String name, final ImmutableSchemaInterface schema) {
-    if (name.equals(NO_SPAM_SCORER_NAME)) {
+    if (NO_SPAM_SCORER_NAME.equals(name)) {
       return new NamedScoringFunctionProvider() {
         @Override
         public ScoringFunction getScoringFunction() throws IOException {
           return new SpamVectorScoringFunction(schema);
         }
       };
-    } else if (name.equals(RETWEETS_SCORER_NAME)) {
+    } else if (RETWEETS_SCORER_NAME.equals(name)) {
       return new NamedScoringFunctionProvider() {
         @Override
         public ScoringFunction getScoringFunction() throws IOException {
@@ -80,7 +80,7 @@ public abstract class ScoringFunctionProvider {
           }
         }
       };
-    } else if (name.equals(TEST_SCORER_NAME)) {
+    } else if (TEST_SCORER_NAME.equals(name)) {
       return new NamedScoringFunctionProvider() {
         @Override
         public ScoringFunction getScoringFunction() throws IOException {

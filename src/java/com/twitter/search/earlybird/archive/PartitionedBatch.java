@@ -106,7 +106,7 @@ public class PartitionedBatch {
     if (dailyBatchFiles != null && dailyBatchFiles.length > 0) {
       for (FileStatus file : dailyBatchFiles) {
         String fileName = file.getPath().getName();
-        if (fileName.equals(STATUS_COUNT_FILE_PREFIX)) {
+        if (STATUS_COUNT_FILE_PREFIX.equals(fileName)) {
           // zero tweets in this partition - this can happen for early days in 2006
           handleEmptyPartition();
         } else {

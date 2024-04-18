@@ -1511,7 +1511,7 @@ public class EarlybirdLuceneQueryVisitor extends SearchQueryVisitor<Query> {
       PhraseQuery.Builder phraseQueryBuilder = new PhraseQuery.Builder();
       int curPos = 0;
       for (String term : phrase.getTerms()) {
-        if (!term.equals(PHRASE_WILDCARD)) {
+        if (!PHRASE_WILDCARD.equals(term)) {
           phraseQueryBuilder.add(createTerm(entry.getKey(), term), curPos);
           curPos++;
         } else if (curPos != 0) { //"*" at the beggining of a phrase has no effect/meaning
